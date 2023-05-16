@@ -31,7 +31,7 @@ class Juego:
             self.__jugador2 = fjugador2
 
     def set_lanzamientos(self, flanzamientos):
-        if not 2 < flanzamientos < 100:
+        if not 2 < flanzamientos < 1000:
             raise Exception("El número de lanzamientos debe de estar entre 2 y 100")
         else:
             self.__lanzamientos = flanzamientos
@@ -70,7 +70,7 @@ class Juego:
         print(f"Jugador 1: {self.__jugador1}")
         print(f"Jugador 2: {self.__jugador2}")
         print(f"Numero de lanzamientos: {self.__lanzamientos}")
-        print(f"Dados: {self.dado1.getCaras()},{self.dado2.getCaras()} y {self.dado3.getCaras()} ")
+        print(f"Dados: {self.dado1.get_caras()},{self.dado2.get_caras()} y {self.dado3.get_caras()} ")
         print(f"Puntos jugador 1: {self.resultado1}")
         print(f"Puntos jugador 2: {self.resultado2}")
         if self.resultado1 > self.resultado2:
