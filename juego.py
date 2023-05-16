@@ -81,7 +81,7 @@ class Juego:
             if self.__intermedios:
                 print(
                     f"{self.__jugador2}: {lanzamiento1} {lanzamiento2} {lanzamiento3} {lanzamiento4}"
-                    f"({(self.resultado2)})")
+                    f"({self.resultado2})")
 
             # jugador3
             lanz1 = self.dado1.lanzar()
@@ -102,7 +102,6 @@ class Juego:
         print(f"Jugador 2: {self.__jugador2}")
         print(f"Jugador 3: {self.__jugador3}")
         print(f"Numero de lanzamientos: {self.__lanzamientos}")
-        print(f"Dados: {self.dado1.get_caras()}, {self.dado2.get_caras()} y {self.dado3.get_caras()} ")
         print(f"Dados: {self.dado1.get_caras()}, {self.dado2.get_caras()}, {self.dado3.get_caras()} "
               f"y {self.dado4.get_caras()}")
         print(f"Puntos jugador 1: {self.resultado1}")
