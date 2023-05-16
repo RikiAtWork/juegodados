@@ -13,13 +13,13 @@ class Juego:
         self.set_jugador3(jugador3)
         self.set_lanzamientos(lanzamientos)
         if caras1 == caras2 or caras1 == caras3 or caras1 == caras4:
-            raise Exception("No puede haber dos dados iguales")
+            raise Exception("No pot haver-hi dos daus iguals")
         elif caras2 == caras1 or caras2 == caras3 or caras2 == caras4:
-            raise Exception("No puede haber dos dados iguales")
+            raise Exception("No pot haver-hi dos daus iguals")
         elif caras3 == caras1 or caras3 == caras2 or caras3 == caras4:
-            raise Exception("No puede haber dos dados iguales")
+            raise Exception("No pot haver-hi dos daus iguals")
         elif caras4 == caras1 or caras4 == caras2 or caras4 == caras3:
-            raise Exception("No puede haber dos dados iguales")
+            raise Exception("No pot haver-hi dos daus iguals")
         else:
             self.dado1 = dado.Dado(caras1)
             self.dado2 = dado.Dado(caras2)
@@ -34,25 +34,25 @@ class Juego:
 
     def set_jugador1(self, fjugador1):
         if len(fjugador1) > 20:
-            raise Exception("La longitud del nombre del jugador 1 no puede ser mayor de 20")
+            raise Exception("La longitud del nom del jugador 1 no pot ser major de 20")
         else:
             self.__jugador1 = fjugador1
 
     def set_jugador2(self, fjugador2):
         if len(fjugador2) > 20:
-            raise Exception("La longitud del nombre del jugador 2 no puede ser mayor de 20")
+            raise Exception("La longitud del nom del jugador 2 no pot ser major de 20")
         else:
             self.__jugador2 = fjugador2
 
     def set_jugador3(self, fjugador3):
         if len(fjugador3) > 20:
-            raise Exception("La longitud del nombre del jugador 2 no puede ser mayor de 20")
+            raise Exception("La longitud del nom del jugador 3 no pot ser major de 20")
         else:
             self.__jugador3 = fjugador3
 
     def set_lanzamientos(self, flanzamientos):
         if not 2 < flanzamientos < 1000:
-            raise Exception("El número de lanzamientos debe de estar entre 2 y 100")
+            raise Exception("El nombre de llançaments ha d'estar entre 2 i 100")
         else:
             self.__lanzamientos = flanzamientos
 
@@ -97,21 +97,21 @@ class Juego:
                 print("")
 
     def mostrar(self):
-        print("Resultados:")
+        print("Resultats:")
         print(f"Jugador 1: {self.__jugador1}")
         print(f"Jugador 2: {self.__jugador2}")
         print(f"Jugador 3: {self.__jugador3}")
-        print(f"Numero de lanzamientos: {self.__lanzamientos}")
-        print(f"Dados: {self.dado1.get_caras()}, {self.dado2.get_caras()}, {self.dado3.get_caras()} "
+        print(f"Nom de llançaments: {self.__lanzamientos}")
+        print(f"Daus: {self.dado1.get_caras()}, {self.dado2.get_caras()}, {self.dado3.get_caras()} "
               f"y {self.dado4.get_caras()}")
-        print(f"Puntos jugador 1: {self.resultado1}")
-        print(f"Puntos jugador 2: {self.resultado2}")
-        print(f"Puntos jugador 3: {self.resultado3}")
+        print(f"Punts jugador 1: {self.resultado1}")
+        print(f"Punts jugador 2: {self.resultado2}")
+        print(f"Punts jugador 3: {self.resultado3}")
         if self.resultado1 > self.resultado2 and self.resultado3:
-            print(f"El GANADOR es {self.__jugador1} con {self.resultado1} puntos")
+            print(f"El guanyador es {self.__jugador1} con {self.resultado1} punts")
         elif self.resultado1 < self.resultado2 and self.resultado3 < self.resultado2:
-            print(f"El GANADOR es {self.__jugador2} con {self.resultado2} puntos")
+            print(f"El guanyador es {self.__jugador2} con {self.resultado2} punts")
         elif self.resultado2 < self.resultado1 < self.resultado3:
-            print(f"El GANADOR es {self.__jugador3} con {self.resultado3} puntos")
+            print(f"El guanyador es {self.__jugador3} con {self.resultado3} punts")
         elif self.resultado1 == self.resultado2 and self.resultado3:
-            print("Ha habido un EMPATE")
+            print("hi ha hagut un EMPAT")
