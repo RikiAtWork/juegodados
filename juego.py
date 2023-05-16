@@ -37,7 +37,7 @@ class Juego:
         if len(fjugador3) > 20:
             raise Exception("La longitud del nombre del jugador 2 no puede ser mayor de 20")
         else:
-            self.__jugador2 = fjugador3
+            self.__jugador3 = fjugador3
 
     def set_lanzamientos(self, flanzamientos):
         if not 2 < flanzamientos < 1000:
@@ -69,7 +69,6 @@ class Juego:
                 print(
                     f"{self.__jugador2}: {lanzamiento1} {lanzamiento2} {lanzamiento3} "
                     f"({(lanzamiento1 + lanzamiento2 + lanzamiento3)})")
-                print("")
 
             # jugador3
             lanz1 = self.dado1.lanzar()
@@ -87,13 +86,17 @@ class Juego:
         print("Resultados:")
         print(f"Jugador 1: {self.__jugador1}")
         print(f"Jugador 2: {self.__jugador2}")
+        print(f"Jugador 3: {self.__jugador3}")
         print(f"Numero de lanzamientos: {self.__lanzamientos}")
-        print(f"Dados: {self.dado1.get_caras()},{self.dado2.get_caras()} y {self.dado3.get_caras()} ")
+        print(f"Dados: {self.dado1.get_caras()}, {self.dado2.get_caras()} y {self.dado3.get_caras()} ")
         print(f"Puntos jugador 1: {self.resultado1}")
         print(f"Puntos jugador 2: {self.resultado2}")
-        if self.resultado1 > self.resultado2:
+        print(f"Puntos jugador 3: {self.resultado3}")
+        if self.resultado1 > self.resultado2 and self.resultado3:
             print(f"El GANADOR es {self.__jugador1} con {self.resultado1} puntos")
-        elif self.resultado1 == self.resultado2:
-            print("Ha habido un EMPATE")
-        else:
+        elif self.resultado1 < self.resultado2 and self.resultado3 < self.resultado2:
             print(f"El GANADOR es {self.__jugador2} con {self.resultado2} puntos")
+        elif self.resultado2 < self.resultado1 < self.resultado3:
+            print(f"El GANADOR es {self.__jugador3} con {self.resultado3} puntos")
+        elif self.resultado1 == self.resultado2 and self.resultado3:
+            print("Ha habido un EMPATE")
