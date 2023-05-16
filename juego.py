@@ -4,11 +4,13 @@ import dado
 class Juego:
     __jugador1 = ""
     __jugador2 = ""
+    __jugador3 = ""
     __lanzamientos = 0
 
-    def __init__(self, jugador1, jugador2, caras1, caras2, caras3, lanzamientos, intermedios):
+    def __init__(self, jugador1, jugador2, jugador3, caras1, caras2, caras3, lanzamientos, intermedios):
         self.set_jugador1(jugador1)
         self.set_jugador2(jugador2)
+        self.set_jugador3(jugador3)
         self.set_lanzamientos(lanzamientos)
         self.dado1 = dado.Dado(caras1)
         self.dado2 = dado.Dado(caras2)
@@ -17,6 +19,7 @@ class Juego:
         self.__intermedios = (intermedios in ("S",  "s"))
         self.resultado1 = 0
         self.resultado2 = 0
+        self.resultado3 = 0
 
     def set_jugador1(self, fjugador1):
         if len(fjugador1) > 20:
@@ -30,6 +33,12 @@ class Juego:
         else:
             self.__jugador2 = fjugador2
 
+    def set_jugador3(self, fjugador3):
+        if len(fjugador3) > 20:
+            raise Exception("La longitud del nombre del jugador 2 no puede ser mayor de 20")
+        else:
+            self.__jugador2 = fjugador3
+
     def set_lanzamientos(self, flanzamientos):
         if not 2 < flanzamientos < 1000:
             raise Exception("El número de lanzamientos debe de estar entre 2 y 100")
@@ -37,9 +46,6 @@ class Juego:
             self.__lanzamientos = flanzamientos
 
     def jugar(self):
-        self.resultado1 = 0
-        self.resultado2 = 0
-
         for x in range(self.__lanzamientos):
             # jugador1
             lanzamiento1 = self.dado1.lanzar()
@@ -63,6 +69,18 @@ class Juego:
                 print(
                     f"{self.__jugador2}: {lanzamiento1} {lanzamiento2} {lanzamiento3} "
                     f"({(lanzamiento1 + lanzamiento2 + lanzamiento3)})")
+                print("")
+
+            # jugador3
+            lanz1 = self.dado1.lanzar()
+            lanz2 = self.dado2.lanzar()
+            lanz3 = self.dado3.lanzar()
+            self.resultado3 += (lanz1 + lanz2 + lanz3)
+
+            if self.__intermedios:
+                print(
+                    f"{self.__jugador3}: {lanz1} {lanz2} {lanz3} "
+                    f"({self.resultado3})")
                 print("")
 
     def mostrar(self):
