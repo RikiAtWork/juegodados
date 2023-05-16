@@ -6,13 +6,14 @@ class Juego:
     __jugador2 = ""
     __lanzamientos = 0
 
-    def __init__(self, jugador1, jugador2, caras1, caras2, caras3, lanzamientos, intermedios):
+    def __init__(self, jugador1, jugador2, caras1, caras2, caras3, caras4, lanzamientos, intermedios):
         self.set_jugador1(jugador1)
         self.set_jugador2(jugador2)
         self.set_lanzamientos(lanzamientos)
         self.dado1 = dado.Dado(caras1)
         self.dado2 = dado.Dado(caras2)
         self.dado3 = dado.Dado(caras3)
+        self.dado4 = dado.Dado(caras4)
         # Me guardo en un atributo booelano si necesito o no ver los datos intermedios
         self.__intermedios = (intermedios in ("S",  "s"))
         self.resultado1 = 0
